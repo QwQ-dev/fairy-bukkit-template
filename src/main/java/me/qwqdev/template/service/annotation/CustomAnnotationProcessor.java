@@ -7,7 +7,7 @@ package me.qwqdev.template.service.annotation;
  *
  * @author NaerQAQ
  * @version 1.0
- * @since 2024 /1/7
+ * @since 2024/1/7
  */
 public interface CustomAnnotationProcessor {
     /**

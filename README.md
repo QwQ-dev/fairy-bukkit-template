@@ -15,4 +15,5 @@ After some improvements, it includes everything I need for efficient plugin deve
 
 Some of the code in this project comes from my previously deleted open-source projects.
 
-The names **NaerQAQ**, **QwQ-dev**, **2000000**, and **Psyche** are all associated with me, and these projects are a continuation and improvement of my earlier work.
+The names **NaerQAQ**, **QwQ-dev**, **2000000**, and **Psyche** are all associated with me, and these projects are a
+continuation and improvement of my earlier work.

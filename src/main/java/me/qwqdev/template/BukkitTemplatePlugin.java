@@ -17,10 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 @FairyLaunch
 @InjectableComponent
 public class BukkitTemplatePlugin extends Plugin {
-    @Autowired
-    @SuppressWarnings("unused")
-    private AnnotationProcessingService annotationProcessingService;
-
     /**
      * The constant PLUGIN_DIR.
      */
@@ -29,6 +25,9 @@ public class BukkitTemplatePlugin extends Plugin {
      * The constant JAVA_PLUGIN.
      */
     public static JavaPlugin JAVA_PLUGIN;
+    @Autowired
+    @SuppressWarnings("unused")
+    private AnnotationProcessingService annotationProcessingService;
 
     @Override
     public void onInitial() {

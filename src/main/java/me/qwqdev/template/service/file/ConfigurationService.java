@@ -11,11 +11,10 @@ import me.qwqdev.template.BukkitTemplatePlugin;
  *
  * <p>This class depends on {@link YamlFileService} for handling YAML file operations.
  *
+ * @author qwq-dev
  * @see YamlFileService
  * @see FileServiceInterface
- *
  * @since 2024-12-06 20:41
- * @author qwq-dev
  */
 @InjectableComponent
 @DependsOn(YamlFileService.class)

@@ -21,7 +21,7 @@ public class AnnotationProcessingServiceImpl implements AnnotationProcessingServ
     /**
      * {@inheritDoc}
      *
-     * @param basePackage  {@inheritDoc}
+     * @param basePackage {@inheritDoc}
      */
     @Override
     public void processAnnotations(String basePackage) {

@@ -1,6 +1,6 @@
 package me.qwqdev.template.service.file;
 
-import de.leonhard.storage.Yaml;
+import de.leonhard.storage.Json;
 import io.fairyproject.container.InjectableComponent;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -10,8 +10,8 @@ import me.qwqdev.template.utils.IOUtils;
 import java.io.File;
 
 /**
- * This class implements {@link FileServiceInterface} for managing Yaml files using a singleton pattern.
- * It provides functionality to retrieve Yaml configurations from files.
+ * This class implements {@link FileServiceInterface} for managing Json files using a singleton pattern.
+ * It provides functionality to retrieve Json configurations from files.
  *
  * @author NaerQAQ
  * @version 1.0
@@ -20,7 +20,7 @@ import java.io.File;
  */
 @InjectableComponent
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class YamlFileService implements FileServiceInterface<Yaml> {
+public class JsonFileService implements FileServiceInterface<Json> {
     /**
      * {@inheritDoc}
      *
@@ -29,13 +29,13 @@ public class YamlFileService implements FileServiceInterface<Yaml> {
      * @return {@inheritDoc}
      */
     @Override
-    public Yaml get(File file, boolean inputStreamFromResource) {
+    public Json get(File file, boolean inputStreamFromResource) {
         return ConfigurableFile.builder()
                 .setFile(file)
                 .setInputStreamFromResource(inputStreamFromResource)
                 .build()
                 .getSimplixBuilder()
-                .createYaml();
+                .createJson();
     }
 
     /**
@@ -47,7 +47,7 @@ public class YamlFileService implements FileServiceInterface<Yaml> {
      * @return {@inheritDoc}
      */
     @Override
-    public Yaml get(String name, String path, boolean inputStreamFromResource) {
-        return get(new File(path, IOUtils.getFinalFileName(name, ".yml")), inputStreamFromResource);
+    public Json get(String name, String path, boolean inputStreamFromResource) {
+        return get(new File(path, IOUtils.getFinalFileName(name, ".json")), inputStreamFromResource);
     }
 }
