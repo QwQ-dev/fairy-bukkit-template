@@ -3,20 +3,23 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
-    //Java plugin
+    // Java plugin
     id("java-library")
 
-    //Fairy framework plugin
+    // Fairy framework plugin
     id("io.fairyproject") version "0.7.8b3-SNAPSHOT"
 
     // Dependency management plugin
     id("io.spring.dependency-management") version "1.1.0"
 
-    //Kotlin plugin
+    // Kotlin plugin
     id("org.jetbrains.kotlin.jvm") version "1.9.23" apply false
 
-    //Shadow plugin, provides the ability to shade fairy and other dependencies to compiled jar
+    // Shadow plugin, provides the ability to shade fairy and other dependencies to compiled jar
     id("com.github.johnrengelman.shadow") version "8.1.1"
+
+    // Lombok
+    id("io.freefair.lombok") version "8.11"
 }
 
 val libPlugin = properties("lib.plugin").toBoolean()
@@ -27,6 +30,7 @@ version = properties("version")
 // Fairy configuration
 fairy {
     name.set(properties("name"))
+
     // Main Package
     mainPackage.set(properties("package"))
     if (libPlugin) {
@@ -78,13 +82,26 @@ repositories {
     mavenCentral()
     maven(url = uri("https://oss.sonatype.org/content/repositories/snapshots/"))
     maven(url = uri("https://repo.codemc.io/repository/maven-public/"))
+
     // Spigot's repository for spigot api dependency
     maven(url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/"))
     maven(url = uri("https://repo.imanity.dev/imanity-libraries"))
+
+    // Jitpack
+    maven(url = uri("https://jitpack.io/"))
 }
 
 // Dependencies
 dependencies {
+    // SimplixStorage
+    implementation("com.github.simplix-softworks:simplixstorage:3.2.7")
+
+    // Reflections
+    implementation("org.reflections:reflections:0.10.2")
+
+    // Apache commons io
+    implementation("commons-io:commons-io:2.18.0")
+
     // Spigot dependency
     compileOnly("org.spigotmc:spigot-api:${properties("spigot.version")}-R0.1-SNAPSHOT")
 }
