@@ -6,5 +6,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "server-core"
+rootProject.name = "fairy-bukkit-template"
 
