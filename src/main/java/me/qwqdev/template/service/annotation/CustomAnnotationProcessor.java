@@ -7,15 +7,18 @@ package me.qwqdev.template.service.annotation;
  *
  * @author NaerQAQ
  * @version 1.0
- * @since 2024/1/7
+ * @since 2024 /1/7
  */
 public interface CustomAnnotationProcessor {
     /**
      * Invoked before processing a class.
      *
      * @param clazz the class to be processed
+     * @throws Exception the exception
      */
-    void before(Class<?> clazz);
+    default void before(Class<?> clazz) throws Exception {
+        // No-op by default
+    }
 
     /**
      * Handles the processing of a class annotated with a specific annotation.
@@ -37,8 +40,11 @@ public interface CustomAnnotationProcessor {
      * Invoked after processing a class.
      *
      * @param clazz the class that was processed
+     * @throws Exception the exception
      */
-    void after(Class<?> clazz);
+    default void after(Class<?> clazz) throws Exception {
+        // No-op by default
+    }
 
     /**
      * Invoked in the "finally" block after processing a class, regardless of success or failure.
@@ -48,5 +54,7 @@ public interface CustomAnnotationProcessor {
      *
      * @param clazz the class that was processed
      */
-    void finallyAfter(Class<?> clazz);
+    default void finallyAfter(Class<?> clazz) {
+        // No-op by default
+    }
 }
