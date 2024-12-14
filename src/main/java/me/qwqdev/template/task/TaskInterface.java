@@ -155,9 +155,9 @@ public interface TaskInterface {
     /**
      * Schedule a periodic task with a fixed delay and interval, and a custom repeat predicate.
      *
-     * @param task     the task to be executed
-     * @param delay    the initial delay before the first execution
-     * @param interval the interval between consecutive executions
+     * @param task      the task to be executed
+     * @param delay     the initial delay before the first execution
+     * @param interval  the interval between consecutive executions
      * @param predicate the {@link io.fairyproject.scheduler.repeat.RepeatPredicate} to control task repetition
      * @return a {@link io.fairyproject.scheduler.ScheduledTask} representing the scheduled task
      */
@@ -204,11 +204,11 @@ public interface TaskInterface {
     /**
      * Schedule a periodic callable task with a fixed delay and interval, and a custom repeat predicate.
      *
-     * @param task     the callable task to be executed
-     * @param delay    the initial delay before the first execution
-     * @param interval the interval between consecutive executions
+     * @param task      the callable task to be executed
+     * @param delay     the initial delay before the first execution
+     * @param interval  the interval between consecutive executions
      * @param predicate the {@link io.fairyproject.scheduler.repeat.RepeatPredicate} to control task repetition
-     * @param <R>      the return type of the callable task
+     * @param <R>       the return type of the callable task
      * @return a {@link io.fairyproject.scheduler.ScheduledTask} representing the scheduled task
      */
     default <R> ScheduledTask<R> scheduleAtFixedRate(Callable<TaskResponse<R>> task, Duration delay, Duration interval, RepeatPredicate<R> predicate) {
