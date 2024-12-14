@@ -1,5 +1,6 @@
 package me.qwqdev.template.task.annotation;
 
+import io.fairyproject.container.Containers;
 import io.fairyproject.log.Log;
 import me.qwqdev.template.service.annotation.AnnotationProcessor;
 import me.qwqdev.template.service.annotation.CustomAnnotationProcessor;
@@ -18,11 +19,10 @@ public class TaskAutoStartAnnotationProcessor implements CustomAnnotationProcess
      * {@inheritDoc}
      *
      * @param clazz {@inheritDoc}
-     * @throws Exception {@inheritDoc}
      */
     @Override
-    public void process(Class<?> clazz) throws Exception {
-        ((TaskInterface) clazz.getDeclaredConstructor().newInstance()).start();
+    public void process(Class<?> clazz) {
+        ((TaskInterface) Containers.get(clazz)).start();
         Log.info("[AnnotationProcessor] {} task started.", clazz.getName());
     }
 
