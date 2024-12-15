@@ -23,7 +23,7 @@ public class TaskAutoStartAnnotationProcessor implements CustomAnnotationProcess
     @Override
     public void process(Class<?> clazz) {
         ((TaskInterface) Containers.get(clazz)).start();
-        Log.info("[AnnotationProcessor] {} task started.", clazz.getName());
+        Log.info("[AnnotationProcessor] %s task started.", clazz.getName());
     }
 
     /**
